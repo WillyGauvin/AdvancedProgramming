@@ -47,6 +47,27 @@ private:
 };
 
 class SpacecraftMonitor {
+public:
+
+    SpacecraftMonitor() {}
+    ~SpacecraftMonitor() {}
+
+    void monitorSpacecraft(std::shared_ptr<Spacecraft> spacecraft)
+    {
+        monitored_spacecraft_ = spacecraft;
+    }
+
+
+    void displayStatus() {
+        if (auto sc = monitored_spacecraft_.lock()) {
+            std::cout << "Monitoring Spacecraft " << sc->getName() << " is active.\n";
+        }
+        else {
+            std::cout << "Monitored spacecraft is no longer active.\n";
+        }
+    }
+private:
+    std::weak_ptr<Spacecraft> monitored_spacecraft_;
 
 };
 
@@ -104,27 +125,115 @@ public:
 
     void assignAstronautToSpacecraft(const std::string& astronautName, const std::string& spacecraftName)
     {
-        // var to astronaut (define me)
+        if (getAstronautsCountOnSpacecraft(spacecraftName) >= findSpacecraft(spacecraftName)->getCrewCapacity())
+        {
+            std::cout << "Cannot add " + astronautName + ", full capacity" << std::endl;
+        }
+        std::shared_ptr<Astronaut> m_astronaut;
         for (int i = 0; i < astronauts.size(); i++)
         {
-            if (astronauts[i].get()->getName() == astronautName)
+            if (astronauts[i]->getName() == astronautName)
             {
-                //(assign me)
+                m_astronaut = astronauts[i];
                 break;
             }
         }
 
         for (int y = 0; y < spacecrafts.size(); y++)
         {
-            if (spacecrafts[y].get()->getName() == spacecraftName)
+            if (spacecrafts[y]->getName() == spacecraftName)
             {
-                if (getAstronautCountOnSpacecraft(const )
-                {
-                    astronauts[i].get()->assignToSpacecraft(std::make_shared<Spacecraft>(spacecrafts[y]));
-                }
+                m_astronaut->assignToSpacecraft(std::make_shared<Spacecraft>(spacecrafts[y]));
             }
         }
     }
+
+    void launchSpacecraft(const std::string& spacecraftName)
+    {
+        for (int i = 0; i < spacecrafts.size(); i++)
+        {
+            if (spacecrafts[i]->getName() == spacecraftName)
+            {
+                std::cout << "Spacecraft " + spacecraftName + " has launched!";
+                return;
+            }
+        }
+        std::cout << "No Spacecraft with that name";
+    }
+
+    void decommissionSpacecraft(const std::string& spacecraftName)
+    {
+        for (int i = 0; i < spacecrafts.size(); i++)
+        {
+            if (spacecrafts[i]->getName() == spacecraftName)
+            {
+                std::cout << "Spacecraft " + spacecraftName + " decommissioned.";
+                return;
+            }
+        }
+        std::cout << "No Spacecraft with that name";
+    }
+
+    void displayStatus() {
+        std::cout << "\nMission Control Status:\n";
+        std::cout << "Spacecrafts:\n";
+        for (const auto& sc : spacecrafts) { // for each spacecraft
+            std::cout << " - " << sc->getName() << " (Capacity: " << sc->getCrewCapacity() << ")\n";
+        }
+        std::cout << "Astronauts:\n";
+        for (const auto& astro : astronauts) { // for each astronaut
+            std::cout << " - " << astro->getName();
+            if (auto sc = astro->getAssignedSpacecraft()) {
+                std::cout << " assigned to " << sc->getName() << "\n";
+            }
+            else {
+                std::cout << " not assigned to any spacecraft\n";
+            }
+        }
+        std::cout << std::endl;
+    } // displayStatus
+
+    std::shared_ptr<Spacecraft> findSpacecraft(std::string name)
+    {
+        std::shared_ptr<Spacecraft> spacecraft;
+        for (int i = 0; i < spacecrafts.size(); i++)
+        {
+            if (spacecrafts[i]->getName() == name)
+            {
+                spacecraft = std::make_shared<Spacecraft>(spacecrafts[i]);
+            }
+        }
+        return spacecraft;
+        std::cout << "No Spacecraft with that name";
+    }
+
+    std::shared_ptr<Astronaut> findAstronaut(std::string name)
+    {
+        std::shared_ptr<Astronaut> astronaut;
+        for (int i = 0; i < astronauts.size(); i++)
+        {
+            if (spacecrafts[i]->getName() == name)
+            {
+                astronaut = astronauts[i];
+            }
+        }
+        return astronaut;
+        std::cout << "No Spacecraft with that name";
+    }
+
+    int getAstronautsCountOnSpacecraft(const std::string& spacecraftName)
+    {
+        int count = 0;
+        for (int i = 0; i < astronauts.size(); i++)
+        {
+            if (astronauts[i]->getAssignedSpacecraft() != nullptr)
+            {
+                return astronauts[i]->getAssignedSpacecraft().use_count();
+            }
+        }
+        return 0;
+    }
+
 private:
     std::vector<std::unique_ptr<Spacecraft>> spacecrafts;
     std::vector<std::shared_ptr<Astronaut>> astronauts;
