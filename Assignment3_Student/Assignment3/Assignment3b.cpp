@@ -6,11 +6,83 @@
 #include <algorithm>
 
 class Engine {
+private:
+    std::string model;
+    int horsepower;
+    std::unique_ptr<std::string> serialNumber;
+    bool isPrototype;
 
+public:
+    Engine(const std::string& _model, int _horsepower, const std::string& _serialNumber, bool _isPrototype = false) :
+        model(_model), horsepower(_horsepower), isPrototype(_isPrototype)
+    {
+        serialNumber = std::make_unique<std::string>(_serialNumber);
+    }
+
+    Engine(const Engine& other)
+        : model(other.model), horsepower(other.horsepower), isPrototype(other.isPrototype)
+    {
+        serialNumber = std::make_unique<std::string>(*other.serialNumber);
+    }
+
+    ~Engine() {}
+
+    Engine(Engine&& other) noexcept
+        : model(std::move(other.model)), horsepower(other.horsepower), isPrototype(other.isPrototype) {
+
+        other.horsepower = 0;
+        serialNumber = std::move(other.serialNumber);
+    }
+
+    // Task 5: Implement the move assignment operator (noexcept)
+    Engine& operator=(Engine&& other) noexcept {
+        // Handle self-assignment
+        if (this == &other)
+            return *this;
+        // Implement move assignment operator
+        model = std::move(other.model);
+        horsepower = other.horsepower;
+        serialNumber = std::move(other.serialNumber);
+        other.horsepower = 0;
+        return *this;
+    }
+
+    const std::string& getSerialNumber() const { return *serialNumber; }
+    const std::string& getModel() const { return model; }
+    void setModel(const std::string& _model) { model = _model; }
+    const int getHorsePower() const { return horsepower; }
 };
 
 class AssemblyLine {
+private:
+    std::string name;
+    std::vector<std::shared_ptr<Engine>> engines;
 
+public:
+    AssemblyLine(const std::string& _name) : name(_name)
+    {
+
+    }
+
+    void addEngine(std::shared_ptr<Engine> engine) { engines.push_back(engine); }
+    void removeEngine(const std::string& serialNumber) 
+    {
+        for (int i = 0; i < engines.size(); i++)
+        {
+            if (engines[i]->getSerialNumber() == serialNumber)
+            {
+                engines.erase(engines.begin() + i);
+                return;
+            }
+        }
+        std::cout << "No engine with serial number: " << serialNumber << std::endl;
+    }
+    void transferEngine(const std::string& serialNumber, AssemblyLine& otherline)
+    {
+       // for (int i = 0; i < engines.size(); en)
+    }
+    const std::string& getName() const { return name; }
+    const std::vector<std::shared_ptr<Engine>>& getEngines() const { return engines; }
 };
 
 class SpecializedTool {
