@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\gauv0058\\Desktop\\AdvancedProgramming\\Assignment3_Student\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5E170899-8346-4DB3-91AD-CA8F07336F6D}|Assignment3\\Assignment3.vcxproj|C:\\Users\\gauv0058\\Desktop\\AdvancedProgramming\\Assignment3_Student\\Assignment3\\Assignment3b.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5E170899-8346-4DB3-91AD-CA8F07336F6D}|Assignment3\\Assignment3.vcxproj|solutionrelative:Assignment3\\Assignment3b.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E170899-8346-4DB3-91AD-CA8F07336F6D}|Assignment3\\Assignment3.vcxproj|C:\\Users\\gauv0058\\Desktop\\AdvancedProgramming\\Assignment3_Student\\Assignment3\\Assignment3a.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5E170899-8346-4DB3-91AD-CA8F07336F6D}|Assignment3\\Assignment3.vcxproj|solutionrelative:Assignment3\\Assignment3a.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Assignment3b.cpp",
+              "DocumentMoniker": "C:\\Users\\gauv0058\\Desktop\\AdvancedProgramming\\Assignment3_Student\\Assignment3\\Assignment3b.cpp",
+              "RelativeDocumentMoniker": "Assignment3\\Assignment3b.cpp",
+              "ToolTip": "C:\\Users\\gauv0058\\Desktop\\AdvancedProgramming\\Assignment3_Student\\Assignment3\\Assignment3b.cpp",
+              "RelativeToolTip": "Assignment3\\Assignment3b.cpp",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAAAGIAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-09T18:42:35.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Assignment3a.cpp",
+              "DocumentMoniker": "C:\\Users\\gauv0058\\Desktop\\AdvancedProgramming\\Assignment3_Student\\Assignment3\\Assignment3a.cpp",
+              "RelativeDocumentMoniker": "Assignment3\\Assignment3a.cpp",
+              "ToolTip": "C:\\Users\\gauv0058\\Desktop\\AdvancedProgramming\\Assignment3_Student\\Assignment3\\Assignment3a.cpp",
+              "RelativeToolTip": "Assignment3\\Assignment3a.cpp",
+              "ViewState": "AQIAAFEAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-09T18:45:24.236Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

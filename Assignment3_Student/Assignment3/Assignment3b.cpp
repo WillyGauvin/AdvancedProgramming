@@ -50,7 +50,7 @@ public:
     const std::string& getSerialNumber() const { return *serialNumber; }
     const std::string& getModel() const { return model; }
     void setModel(const std::string& _model) { model = _model; }
-    const int getHorsePower() const { return horsepower; }
+    const int getHorsepower() const { return horsepower; }
 };
 
 class AssemblyLine {
@@ -79,13 +79,30 @@ public:
     }
     void transferEngine(const std::string& serialNumber, AssemblyLine& otherline)
     {
-       // for (int i = 0; i < engines.size(); en)
+       for (int i = 0; i < engines.size(); i++)
+       {
+           if (engines[i]->getSerialNumber() == serialNumber)
+           {
+               std::shared_ptr<Engine> engine = std::shared_ptr<Engine>(engines[i]);
+               otherline.addEngine(engine);
+               removeEngine(serialNumber);
+           }
+       }
     }
     const std::string& getName() const { return name; }
     const std::vector<std::shared_ptr<Engine>>& getEngines() const { return engines; }
 };
 
 class SpecializedTool {
+public:
+    SpecializedTool(const std::string& _name) : name(_name)
+    {
+        std::cout << "SpecializedTool created: " << name << std::endl;
+    }
+    template<typename T> void use(T&& engine)
+    {
+        workOnEngine(std::forward<T>(engine));
+    }
 private:
    // Helper method to simulate working on the engine
    void workOnEngine(Engine& engine) {
@@ -101,6 +118,8 @@ private:
       std::cout << name << " is modifying temporary Engine " << engine.getSerialNumber()
          << " (rvalue)\n";
    }
+
+   std::string name;
 };
 
 struct Assignment3b {
