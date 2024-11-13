@@ -39,17 +39,16 @@ private:
 
 public:
     Post(const std::string& content, Platform platform)
-        : content(content), platform(platform) {}
+        : content(content), platform(platform), status(PostStatus::FAILED) {}
 
     void updateStatus(PostStatus newStatus)
     {
-
+        postMutex.lock();
+        status = newStatus;
+        postMutex.unlock();
     }
 
-    PostStatus getStatus() const
-    {
-
-    }
+    PostStatus getStatus() const { return status; }
 
     Platform getPlatform() const { return platform; }
     std::string getContent() const { return content; }
@@ -67,21 +66,31 @@ private:
 public:
     void addPost(std::shared_ptr<Post> post)
     {
+        queueMutex.lock();
+        posts.push_back(post); // Proper transfer of shared ptr?
+        queueMutex.unlock();
+        queueCV.notify_all();
+
     }
 
     std::shared_ptr<Post> getNextPost()
     {
-
+        std::lock_guard<std::mutex> sharepost(queueMutex);
+        return posts.front();
     }
 
     void shutdown()
     {
-
+        {
+            std::lock_guard<std::mutex> sharepost(queueMutex);
+            shutDown = true;
+        }
+        queueCV.notify_all();
     }
 
     bool isEmpty()
     {
-
+        return posts.empty();
     }
 
 };
@@ -99,17 +108,37 @@ public:
 
     void processPost(std::shared_ptr<Post> post)
     {
-
+        post->updateStatus(PostStatus::POSTED);
     }
 
     void togglePlatform()
     {
-
+        isActive.store(!isActive.load());
     }
 
     std::string getPlatformName() const
     {
-
+        switch (platformType)
+        {
+        case Platform::FACEBOOK:
+            return "FACEBOOK";
+            break;
+        case Platform::INSTAGRAM:
+            return "INSTAGRAM";
+            break;
+        case Platform::LINKEDIN:
+            return "LINKEDIN";
+            break;
+        case Platform::SNAPCHAT:
+            return "SNAPCHAT";
+            break;
+        case Platform::STACKOVERFLOW:
+            return "STACKOVERFLOW";
+            break;
+        case Platform::TWITTER:
+            return "TWITTER";
+            break;
+        }
     }
 };
 
@@ -124,12 +153,17 @@ private:
 
 public:
     ThreadPool(size_t numThreads, PostQueue& queue, std::unordered_map<Platform, PlatformManager*>& managers)
+        : postQueue(queue),
+        platformManagers(managers)
     {
-
+        for (size_t i = 0; i < numThreads; i++)
+        {
+            workers.push_back(std::thread());
+        }
     }
     ~ThreadPool()
     {
-
+        //???
     }
     void shutdown()
     {
