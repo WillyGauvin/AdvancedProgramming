@@ -39,7 +39,7 @@ private:
 
 public:
     Post(const std::string& content, Platform platform)
-        : content(content), platform(platform), status(PostStatus::FAILED) {}
+        : content(content), platform(platform), status(PostStatus::PENDING) {}
 
     void updateStatus(PostStatus newStatus)
     {
@@ -67,7 +67,7 @@ public:
     void addPost(std::shared_ptr<Post> post)
     {
         queueMutex.lock();
-        posts.push_back(post); // Proper transfer of shared ptr?
+        posts.push_front(post); // Proper transfer of shared ptr?
         queueMutex.unlock();
         queueCV.notify_all();
 
@@ -76,7 +76,10 @@ public:
     std::shared_ptr<Post> getNextPost()
     {
         std::lock_guard<std::mutex> sharepost(queueMutex);
-        return posts.front();
+
+        std::shared_ptr<Post> post = posts[posts.size()-1];
+        posts.pop_back();
+        return post;
     }
 
     void shutdown()
@@ -108,7 +111,30 @@ public:
 
     void processPost(std::shared_ptr<Post> post)
     {
-        post->updateStatus(PostStatus::POSTED);
+        std::osyncstream syncOut(std::cout);
+
+        if (!isActive) //Don't post if we're in downtime
+        {
+            post->updateStatus(PostStatus::FAILED);
+            syncOut << "Post failed: Server is in downtime" << std::endl;
+            return;
+        }
+
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+
+        if (post->getPlatform() == platformType) //Only process if the post is on our platform
+        {
+            post->updateStatus(PostStatus::POSTED);
+            syncOut << "Platform: " << getPlatformName() << " Posted: " << post->getContent() << std::endl;
+        }
+        else
+        {
+            post->updateStatus(PostStatus::FAILED);
+            syncOut << "FAILED: Wrong platform" << std::endl;
+        }
+
+
+
     }
 
     void togglePlatform()
@@ -158,8 +184,9 @@ public:
     {
         for (size_t i = 0; i < numThreads; i++)
         {
-            workers.push_back(std::thread());
+            //workers.push_back(std::thread(workerFunction));
         }
+        workerFunction();
     }
     ~ThreadPool()
     {
@@ -173,7 +200,11 @@ public:
 private:
     void workerFunction()
     {
-
+        while (!postQueue.isEmpty())
+        {
+            std::shared_ptr<Post> nextPost = postQueue.getNextPost();
+            platformManagers[nextPost->getPlatform()]->processPost(nextPost);
+        }
     }
 };
 

@@ -5,7 +5,7 @@ using namespace std;
 
 int main() {
    std::cout << "=========Assignment6a=========" << std::endl;
-   Assignment6a::Execute();
+   //Assignment6a::Execute();
    std::cout << "=========Assignment6b=========" << std::endl;
-   //Assignment6b::Execute();
+   Assignment6b::Execute();
 }
