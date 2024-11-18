@@ -280,7 +280,7 @@ struct Tasks {
             std::future<int> tracking = deliveryPromise.get_future();
 
             std::thread([deliveryPromise = std::move(deliveryPromise), orderId]() mutable {
-                std::this_thread::sleep_for(std::chrono::seconds(100));
+                std::this_thread::sleep_for(std::chrono::seconds(5));
                 deliveryPromise.set_value(orderId * 2);
                 }).detach();
 

@@ -184,17 +184,19 @@ public:
     {
         for (size_t i = 0; i < numThreads; i++)
         {
-            //workers.push_back(std::thread(workerFunction));
+            workers.emplace_back([this, i]() {
+                workerFunction();
+                });
         }
-        workerFunction();
     }
     ~ThreadPool()
     {
-        //???
+        for (auto& a : workers) a.join();
     }
     void shutdown()
     {
-
+        stop.store(true);
+        postQueue.shutdown();
     }
 
 private:
