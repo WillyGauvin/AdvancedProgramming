@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="96cm" height="54cm" viewBox="16 40 1916 1074" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="1182.94" y="892.263" width="158.922" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1182.94" y="892.263" width="158.922" height="38"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1262.4" y="916.063">
+      <tspan x="1262.4" y="916.063">Message Send Thread</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="1416.86" y="42.7542" width="184" height="53"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1416.86" y="42.7542" width="184" height="53"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1508.86" y="74.0542">
+      <tspan x="1508.86" y="74.0542">Client Socket</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="1182.97" y="783.478" width="161.8" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1182.97" y="783.478" width="161.8" height="38"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1263.87" y="807.278">
+      <tspan x="1263.87" y="807.278">Message Receive Thread</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="1746.86" y="41.8101" width="184" height="53"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1746.86" y="41.8101" width="184" height="53"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1838.86" y="73.1101">
+      <tspan x="1838.86" y="73.1101">Main Thread</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="991.431" y="659.486" width="184" height="53"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="991.431" y="659.486" width="184" height="53"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1083.43" y="690.786">
+      <tspan x="1083.43" y="690.786">Client Receive Thread</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="110" y1="98" x2="109.012" y2="922.264"/>
+    <polygon style="fill: #000000" points="109.003,929.764 104.015,919.758 109.012,922.264 114.015,919.77 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="109.003,929.764 104.015,919.758 109.012,922.264 114.015,919.77 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="453.721" y1="99.0012" x2="452.733" y2="923.265"/>
+    <polygon style="fill: #000000" points="452.724,930.765 447.736,920.759 452.733,923.265 457.736,920.771 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="452.724,930.765 447.736,920.759 452.733,923.265 457.736,920.771 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="17.5" y="46" width="184" height="53"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="17.5" y="46" width="184" height="53"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="109.5" y="77.3">
+      <tspan x="109.5" y="77.3">Main Thread</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="362" y="46" width="184" height="53"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="362" y="46" width="184" height="53"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="454" y="77.3">
+      <tspan x="454" y="77.3">Server</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="111" y1="140" x2="443.264" y2="140.972"/>
+    <polygon style="fill: #000000" points="450.764,140.993 440.749,145.964 443.264,140.972 440.779,135.964 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="450.764,140.993 440.749,145.964 443.264,140.972 440.779,135.964 "/>
+  </g>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="236" y="136">
+    <tspan x="236" y="136">(1) Create</tspan>
+  </text>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 461.364,199.63 A 30.4335,30.4335 0 1 0 456,139"/>
+    <polygon style="fill: #000000" points="454.181,199.492 465.037,196.817 461.497,201.144 462.835,206.572 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="454.181,199.492 465.037,196.817 461.497,201.144 462.835,206.572 "/>
+  </g>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="488" y="159">
+    <tspan x="488" y="159">(2) Init Winsock</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="109" y1="218" x2="442.264" y2="218"/>
+    <polygon style="fill: #000000" points="449.764,218 439.764,223 442.264,218 439.764,213 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="449.764,218 439.764,223 442.264,218 439.764,213 "/>
+  </g>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="236" y="212">
+    <tspan x="236" y="212">(3) Start Server</tspan>
+  </text>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 464.244,275.87 A 27.5171,27.5171 0 0 0 456,222"/>
+    <polygon style="fill: #000000" points="457.233,277.108 467.464,272.598 464.725,277.471 466.98,282.586 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="457.233,277.108 467.464,272.598 464.725,277.471 466.98,282.586 "/>
+  </g>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="486" y="244">
+    <tspan x="486" y="244">(4) Create Server</tspan>
+  </text>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 464.762,337.888 A 27.5171,27.5171 0 0 0 456.518,284.018"/>
+    <polygon style="fill: #000000" points="457.751,339.126 467.982,334.616 465.243,339.489 467.498,344.604 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="457.751,339.126 467.982,334.616 465.243,339.489 467.498,344.604 "/>
+  </g>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="484" y="310">
+    <tspan x="484" y="310">(5) Bind Server Socket</tspan>
+  </text>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 464.989,405.496 A 27.7152,27.7152 0 0 0 457.018,353.018"/>
+    <polygon style="fill: #000000" points="458.242,407.783 467.662,401.761 465.7,406.996 468.711,411.706 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="458.242,407.783 467.662,401.761 465.7,406.996 468.711,411.706 "/>
+  </g>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="486" y="376">
+    <tspan x="486" y="376">(7) Listen</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="113" y1="424" x2="442.264" y2="424.971"/>
+    <polygon style="fill: #000000" points="449.764,424.993 439.749,429.964 442.264,424.971 439.779,419.964 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="449.764,424.993 439.749,429.964 442.264,424.971 439.779,419.964 "/>
+  </g>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="187" y="419">
+    <tspan x="187" y="419">(7) Initiate Chat Room</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="741.5" y="444" width="184" height="53"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="741.5" y="444" width="184" height="53"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="833.5" y="475.3">
+      <tspan x="833.5" y="475.3">Connection Handler Thread</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="456" y1="461" x2="729.264" y2="461"/>
+    <polygon style="fill: #000000" points="736.764,461 726.764,466 729.264,461 726.764,456 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="736.764,461 726.764,466 729.264,461 726.764,456 "/>
+  </g>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="490" y="453">
+    <tspan x="490" y="453">(8) Spawn Connection Handler Thread</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="833.5" y1="497" x2="833.01" y2="962.764"/>
+    <polygon style="fill: #000000" points="833.002,970.264 828.013,960.259 833.01,962.764 838.013,960.269 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="833.002,970.264 828.013,960.259 833.01,962.764 838.013,960.269 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="1508.86" y1="95.7542" x2="1510.84" y2="1102.12"/>
+    <polygon style="fill: #000000" points="1510.86,1109.62 1505.84,1099.63 1510.84,1102.12 1515.84,1099.61 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1510.86,1109.62 1505.84,1099.63 1510.84,1102.12 1515.84,1099.61 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="1838.86" y1="94.8101" x2="1840.65" y2="951.888"/>
+    <polygon style="fill: #000000" points="1840.67,959.388 1835.65,949.399 1840.65,951.888 1845.65,949.378 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1840.67,959.388 1835.65,949.399 1840.65,951.888 1845.65,949.378 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" x1="1837.61" y1="148.237" x2="1522.69" y2="149.391"/>
+    <polygon style="fill: #0000ff" points="1515.19,149.418 1525.17,144.382 1522.69,149.391 1525.21,154.382 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="1515.19,149.418 1525.17,144.382 1522.69,149.391 1525.21,154.382 "/>
+  </g>
+  <text font-size="12.7998" style="fill: #0000ff;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1606.9" y="139.913">
+    <tspan x="1606.9" y="139.913">(1) Create</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" x1="1837.61" y1="485.972" x2="1517.93" y2="485.972"/>
+    <polygon style="fill: #0000ff" points="1510.43,485.972 1520.43,480.972 1517.93,485.972 1520.43,490.972 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="1510.43,485.972 1520.43,480.972 1517.93,485.972 1520.43,490.972 "/>
+  </g>
+  <text font-size="12.7998" style="fill: #0000ff;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1611.66" y="474.08">
+    <tspan x="1611.66" y="474.08">(2) Connect to Server</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" x1="1508.86" y1="523.854" x2="846.031" y2="524.024"/>
+    <polygon style="fill: #0000ff" points="838.531,524.026 848.53,519.024 846.031,524.024 848.532,529.024 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="838.531,524.026 848.53,519.024 846.031,524.024 848.532,529.024 "/>
+  </g>
+  <text font-size="12.7998" style="fill: #0000ff;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1074.14" y="513.324">
+    <tspan x="1074.14" y="513.324">(3) Connect</tspan>
+  </text>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 848.068,656.874 A 27.7152,27.7152 0 0 0 840.097,604.396"/>
+    <polygon style="fill: #000000" points="841.321,659.162 850.74,653.139 848.779,658.374 851.79,663.084 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="841.321,659.162 850.74,653.139 848.779,658.374 851.79,663.084 "/>
+  </g>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="864.836" y="614.081">
+    <tspan x="864.836" y="614.081">(9)Add Client to Room(Spawn Receive Thread)</tspan>
+  </text>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="853.852,686.109 918.862,686.109 918.862,685.923 990.492,685.923 "/>
+    <polygon style="fill: #000000" points="828.681,686.109 842.681,681.309 856.681,686.109 842.681,690.909 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="828.681,686.109 842.681,681.309 856.681,686.109 842.681,690.909 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="920.862" y="682.016"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="860.681" y="682.109">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="986.492" y="681.923">0..*</text>
+  </g>
+  <text font-size="11.3339" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="847.985" y="701.928">
+    <tspan x="847.985" y="701.928">(10) Spawns for each client</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="1083.43" y1="712.486" x2="1084.83" y2="1100.12"/>
+    <polygon style="fill: #000000" points="1084.85,1107.62 1079.82,1097.63 1084.83,1100.12 1089.82,1097.6 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1084.85,1107.62 1079.82,1097.63 1084.83,1100.12 1089.82,1097.6 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" x1="1508.86" y1="730.353" x2="1097.6" y2="729.377"/>
+    <polygon style="fill: #0000ff" points="1090.1,729.359 1100.11,724.383 1097.6,729.377 1100.09,734.382 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="1090.1,729.359 1100.11,724.383 1097.6,729.377 1100.09,734.382 "/>
+  </g>
+  <text font-size="12.7998" style="fill: #0000ff;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1233.86" y="716.353">
+    <tspan x="1233.86" y="716.353">(4) Send Name</tspan>
+  </text>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" d="M 1097.35,793.849 A 27.7152,27.7152 0 0 0 1089.38,741.371"/>
+    <polygon style="fill: #0000ff" points="1090.6,796.137 1100.02,790.114 1098.06,795.349 1101.07,800.059 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="1090.6,796.137 1100.02,790.114 1098.06,795.349 1101.07,800.059 "/>
+  </g>
+  <text font-size="12.7998" style="fill: #0000ff;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1118.86" y="757.353">
+    <tspan x="1118.86" y="757.353">(5) Set Name to connection</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="1287.86" y="584.354" width="100.7" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1287.86" y="584.354" width="100.7" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1338.21" y="604.354">Connection</text>
+    <rect style="fill: #ffffff" x="1287.86" y="612.354" width="100.7" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1287.86" y="612.354" width="100.7" height="8"/>
+    <rect style="fill: #ffffff" x="1287.86" y="620.354" width="100.7" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1287.86" y="620.354" width="100.7" height="8"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1200.6,659.486 1239.15,659.486 1239.15,617.354 1288.86,617.354 "/>
+    <polygon style="fill: #ffffff" points="1175.43,659.486 1189.43,654.686 1203.43,659.486 1189.43,664.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1175.43,659.486 1189.43,654.686 1203.43,659.486 1189.43,664.286 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1241.15" y="634.42">Has</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1207.43" y="655.486">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="1284.86" y="613.354">1</text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" x1="1509.86" y1="802.353" x2="1354.51" y2="802.47"/>
+    <polygon style="fill: #0000ff" points="1347.01,802.476 1357,797.469 1354.51,802.47 1357.01,807.469 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="1347.01,802.476 1357,797.469 1354.51,802.47 1357.01,807.469 "/>
+  </g>
+  <text font-size="12.7998" style="fill: #0000ff;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1350.86" y="791.353">
+    <tspan x="1350.86" y="791.353">(6) Spawn message receive thread</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" x1="1509.86" y1="909.853" x2="1350.33" y2="910.084"/>
+    <polygon style="fill: #0000ff" points="1342.83,910.095 1352.83,905.081 1350.33,910.084 1352.84,915.081 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="1342.83,910.095 1352.83,905.081 1350.33,910.084 1352.84,915.081 "/>
+  </g>
+  <text font-size="12.7998" style="fill: #0000ff;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1355.36" y="901.653">
+    <tspan x="1355.36" y="901.653">(7) Spawn message send thread</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="1262.4" y1="930.263" x2="1262.83" y2="1089.12"/>
+    <polygon style="fill: #000000" points="1262.85,1096.62 1257.83,1086.63 1262.83,1089.12 1267.83,1086.6 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1262.85,1096.62 1257.83,1086.63 1262.83,1089.12 1267.83,1086.6 "/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" d="M 1272.35,995.349 A 27.7152,27.7152 0 0 0 1264.38,942.871"/>
+    <polygon style="fill: #0000ff" points="1265.6,997.636 1275.02,991.614 1273.06,996.849 1276.07,1001.56 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="1265.6,997.636 1275.02,991.614 1273.06,996.849 1276.07,1001.56 "/>
+  </g>
+  <text font-size="12.7998" style="fill: #0000ff;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1289.86" y="965.853">
+    <tspan x="1289.86" y="965.853">(8) Get Input message</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" x1="1262.86" y1="1015.85" x2="1089.6" y2="1014.91"/>
+    <polygon style="fill: #0000ff" points="1082.1,1014.87 1092.12,1009.92 1089.6,1014.91 1092.07,1019.92 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="1082.1,1014.87 1092.12,1009.92 1089.6,1014.91 1092.07,1019.92 "/>
+  </g>
+  <text font-size="12.7998" style="fill: #0000ff;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1121.86" y="1009.85">
+    <tspan x="1121.86" y="1009.85">(9) Send Message</tspan>
+  </text>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" d="M 1084.38,972.871 A 31.1246,31.1246 0 0 0 1093.18,913.771"/>
+    <polygon style="fill: #0000ff" points="1086.36,911.457 1096.92,907.783 1093.8,912.42 1095.64,917.7 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="1086.36,911.457 1096.92,907.783 1093.8,912.42 1095.64,917.7 "/>
+  </g>
+  <text font-size="12.7998" style="fill: #0000ff;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1085.86" y="954.853">
+    <tspan x="1085.86" y="954.853">(10)Broad cast to all connections</tspan>
+  </text>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="1106.03,851.853 1128.42,851.853 1128.42,826.853 1256.39,826.853 "/>
+    <polygon style="fill: #0000ff" points="1080.86,851.853 1094.86,847.053 1108.86,851.853 1094.86,856.653 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="1080.86,851.853 1094.86,847.053 1108.86,851.853 1094.86,856.653 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="1242.62,834.853 1258.62,826.853 1242.62,818.853 "/>
+    <text font-size="12.7998" style="fill: #0000ff;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1130.42" y="835.353">(11)Send Message</text>
+    <text font-size="12.7998" style="fill: #0000ff;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1112.86" y="847.853">1</text>
+    <text font-size="12.7998" style="fill: #0000ff;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="1240.86" y="822.853">*</text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="1260.86" y1="824.853" x2="1261.69" y2="872.119"/>
+    <polygon style="fill: #000000" points="1261.82,879.617 1256.65,869.707 1261.69,872.119 1266.65,869.531 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1261.82,879.617 1256.65,869.707 1261.69,872.119 1266.65,869.531 "/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" d="M 1269.45,862.537 A 17.0905,17.0905 0 1 0 1261.38,829.871"/>
+    <polygon style="fill: #0000ff" points="1262.87,861.831 1274.05,861.706 1269.62,865.11 1269.68,870.7 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="1262.87,861.831 1274.05,861.706 1269.62,865.11 1269.68,870.7 "/>
+  </g>
+  <text font-size="12.7998" style="fill: #0000ff;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1287.86" y="841.853">
+    <tspan x="1287.86" y="841.853">(12) Receive message</tspan>
+  </text>
+</svg>
