@@ -10,6 +10,9 @@
 #include <iostream>
 #include <string>
 
+#include <thread>
+#include <mutex>
+
 #include "Socket.h"
 #include "IPEndpoint.h"
 #include "WSASession.h"
@@ -48,48 +51,6 @@ protected:
     }
 };
 
-// TCP Client
-/*
-* -Singly threaded
-* -Non-blocking
-*/
-class NonBlockingTCPClient : public NonBlockingTCPSocket {
-protected:
-    void connect(const IPv4Endpoint& endpoint) { // Connect to an endpoint
-        if (::connect(sock, endpoint.as_sockaddr(), endpoint.size())
-            == SOCKET_ERROR) {
-            if (!wouldBlock()) { // Check if the operation would block
-                throw std::runtime_error("Connect failed: " +
-                    std::to_string(WSAGetLastError()));
-            }
-        }
-    }
-
-    bool trySend(const char* data, int length, int& bytesSent) { // Try to send data
-        bytesSent = ::send(sock, data, length, 0);
-        if (bytesSent == SOCKET_ERROR) {
-            if (!wouldBlock()) { // Check if the operation would block
-                throw std::runtime_error("Send failed: " +
-                    std::to_string(WSAGetLastError()));
-            }
-            return false;
-        }
-        return true;
-    }
-
-    bool tryReceive(char* buffer, int length, int& bytesReceived) { // Try to receive data
-        bytesReceived = recv(sock, buffer, length, 0);
-        if (bytesReceived == SOCKET_ERROR) {
-            if (!wouldBlock()) { // Check if the operation would block
-                throw std::runtime_error("Receive failed: " +
-                    std::to_string(WSAGetLastError()));
-            }
-            return false;
-        }
-        return true;
-    }
-};
-
 // Math Client
 /*
 * -Singly threaded
@@ -111,20 +72,47 @@ public:
 
         std::string input;
         char buffer[1024];
-        
+
+        std::cout << "Enter Name: ";
+        std::getline(std::cin, input);
+
+        send(input.c_str(), input.length());
+
+        std::thread send(message_send);
+        send.detach();
+
+        std::thread receive(message_read);
+        receive.detach();
+    }
+
+private:
+
+    void message_send()
+    {
+        std::string input;
+        char buffer[1024];
+
         while (true)
         {
-            std::cout << "Enter message: ";
+            std::cout << "You: ";
             std::getline(std::cin, input);
-
             if (input == "quit") break;
 
             send(input.c_str(), input.length());
+        }
+    }
 
+    void message_read()
+    {
+        std::string input;
+        char buffer[1024];
+
+        while (true)
+        {
             int bytes = receive(buffer, sizeof(buffer) - 1);
             buffer[bytes] = '\0';
 
-            std::cout << "Server echo: " << buffer << std::endl;
+            std::cout << buffer << std::endl;
         }
     }
 };

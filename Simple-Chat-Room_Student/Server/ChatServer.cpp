@@ -19,6 +19,8 @@
 #include "IPEndpoint.h"
 #include "WSASession.h"
 
+#include "Connection.cpp"
+
 // TCP Server
 /*
 * -Singly threaded
@@ -86,23 +88,8 @@ public:
 
     void initiate_chat_room()
     {
-
-        while (true) //Connection handler thread replaces this forloop
-        {
-            try
-            {
-                SOCKET client = accept();
-                //Create a connection
-                //add client to room
-                //spawn a connection handler thread to handleClient
-                handleClient(client);
-                closesocket(client);
-            }
-            catch (const std::exception& e)
-            {
-                std::cerr << "Error: " << e.what() << std::endl;
-            }
-        }
+        std::thread connectionHandler(&ChatServer::ConnectionHandler, this);
+        connectionHandler.detach();
     }
 
 
@@ -114,43 +101,46 @@ private:
 
     void ConnectionHandler()
     {
+        while (true)
+        {
+            try
+            {
+                SOCKET client = accept();
+                //Create a connection
+                Connection connection = Connection(client);
 
+                add_client_to_room(connection);
+            }
+            catch (const std::exception& e)
+            {
+                std::cerr << "Error: " << e.what() << std::endl;
+            }
+        }
     }
 
-    void handleClient(SOCKET client)
+    void handleClient(Connection& client) // Receive Thread
     {
         char buffer[1024];
         int bytes;
 
-        while ((bytes = recv(client, buffer, sizeof(buffer), 0)) > 0) // Client recieve thread replaces this forloop
+        bytes = recv(client.ClientSocket, buffer, sizeof(buffer), 0);
+
+        client.client_name = buffer;
+
+        while ((bytes = recv(client.ClientSocket, buffer, sizeof(buffer), 0)) > 0) // Client recieve thread replaces this forloop
         {
-            send(client, buffer, bytes, 0);
+            send(client.ClientSocket, buffer, bytes, 0); // Send what other people have been saying.
         }
+
+        closesocket(client.ClientSocket);
     }
 
     void add_client_to_room(Connection& c)
     {
         connections.insert({c.ClientSocket, c });
+
+        std::thread clientReceiveThread(&ChatServer::handleClient, c);
+        clientReceiveThread.detach();
     }
 
-
-
-
-
-  
-
-};
-
-class Connection
-{
-public:
-    SOCKET ClientSocket;
-    sockaddr_in ClientSocketAddress;
-    std::string client_name;
-
-    Connection(const SOCKET ClientSocket, const sockaddr_in ClientSocketAddress) :
-        ClientSocket(ClientSocket), ClientSocketAddress(ClientSocketAddress)
-    {
-
-    }
 };

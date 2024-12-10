@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Server\ChatServer.cpp" />
+    <ClCompile Include="..\Server\Connection.cpp" />
     <ClCompile Include="..\Server\main.cpp" />
   </ItemGroup>
   <ItemGroup>

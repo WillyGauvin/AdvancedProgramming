@@ -1,6 +1,0 @@
-﻿  ChatClient.cpp
-C:\Users\gauv0058\Desktop\Simple-Chat-Room_Student\Client\ChatClient.cpp(122,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  main.cpp
-C:\Users\gauv0058\Desktop\Simple-Chat-Room_Student\Client\ChatClient.cpp(122,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  Generating Code...
-  ChatClient.vcxproj -> C:\Users\gauv0058\Desktop\Simple-Chat-Room_Student\ChatClient\x64\Debug\ChatClient.exe
