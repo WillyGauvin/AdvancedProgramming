@@ -9,9 +9,11 @@
 
 #include <iostream>
 #include <string>
-
 #include <thread>
 #include <mutex>
+#include <condition_variable>
+#include <atomic>
+#include <chrono>
 
 #include "Socket.h"
 #include "IPEndpoint.h"
@@ -65,54 +67,82 @@ protected:
 class ChatClient : public TCPClient
 {
 public:
+    std::thread sendThread;
+    std::thread receiveThread;
+
+    bool active = true;
+
+
     void start(const char* ip, unsigned short port)
     {
         IPv4Endpoint endpoint(ip, port);
         connect(endpoint);
 
         std::string input;
-        char buffer[1024];
 
         std::cout << "Enter Name: ";
         std::getline(std::cin, input);
 
-        send(input.c_str(), input.length());
+        send(input.c_str(), (int)input.length());
 
-        std::thread send(message_send);
-        send.detach();
+        sendThread = std::thread([this] { this->message_send(); });
+        sendThread.detach();
 
-        std::thread receive(message_read);
-        receive.detach();
+        receiveThread = std::thread([this] {this->message_read(); });
+        receiveThread.detach();
+
+        while (active)
+        {
+
+        }
     }
 
-private:
 
     void message_send()
     {
-        std::string input;
-        char buffer[1024];
-
-        while (true)
+        while (active)
         {
+            std::string input;
+
             std::cout << "You: ";
             std::getline(std::cin, input);
-            if (input == "quit") break;
 
-            send(input.c_str(), input.length());
+            while (input.length() >= 1024)
+            {
+                std::cout << "Message Too long. Shorter then 1024 characters." << std::endl;
+                std::cout << "You: ";
+                std::getline(std::cin, input);
+            }
+
+            if (input == "quit")
+            {
+                active = false;
+                break;
+            }
+            input.push_back('\0');
+
+            send(input.c_str(), (int)input.length());
         }
     }
 
     void message_read()
     {
-        std::string input;
-        char buffer[1024];
-
-        while (true)
+        while (active)
         {
+            char buffer[1024];
             int bytes = receive(buffer, sizeof(buffer) - 1);
+            if (bytes <= 0)
+            {
+                break;
+            }
+
             buffer[bytes] = '\0';
 
+            std::cout << "\x1b[2K" << "\r";
             std::cout << buffer << std::endl;
+
+            std::cout << "You: ";
+
         }
     }
 };

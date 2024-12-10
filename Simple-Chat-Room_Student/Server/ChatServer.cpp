@@ -75,6 +75,10 @@ protected:
 class ChatServer : public TCPServer
 {
 public:
+
+    std::thread connectionHandlerThread;
+    std::thread clientReceiveThread;
+
     void start(const char* ip, unsigned short port)
     {
         IPv4Endpoint endpoint(ip, port);
@@ -84,12 +88,19 @@ public:
         std::cout << "Server listening on port: " << port << std::endl;
 
         initiate_chat_room();
+
+        while (true)
+        {
+
+        }
     }
 
     void initiate_chat_room()
     {
-        std::thread connectionHandler(&ChatServer::ConnectionHandler, this);
-        connectionHandler.detach();
+        std::cout << "Starting chat room." << std::endl;
+        connectionHandlerThread = std::thread([this] {this->ConnectionHandler(); });
+
+        connectionHandlerThread.detach();
     }
 
 
@@ -118,28 +129,67 @@ private:
         }
     }
 
-    void handleClient(Connection& client) // Receive Thread
+    void clientReceive(Connection client) // Receive Thread
     {
-        char buffer[1024];
-        int bytes;
+        char nameBuffer[1024] = {};
+        int nameBytes = recv(client.ClientSocket, nameBuffer, sizeof(nameBuffer), 0);
 
-        bytes = recv(client.ClientSocket, buffer, sizeof(buffer), 0);
+        client.client_name = nameBuffer;
 
-        client.client_name = buffer;
+        std::cout << "Client : " << client.client_name << " has joined!" << std::endl;
 
-        while ((bytes = recv(client.ClientSocket, buffer, sizeof(buffer), 0)) > 0) // Client recieve thread replaces this forloop
+        while (true)
         {
-            send(client.ClientSocket, buffer, bytes, 0); // Send what other people have been saying.
+            char buffer[1024] = {};
+            int bytes;
+
+            bytes = recv(client.ClientSocket, buffer, sizeof(buffer), 0);
+
+            if (bytes <= 0)
+            {
+                break;
+            }
+
+            std::string output = client.client_name + ": " + buffer;
+
+            strncpy_s(buffer, output.c_str(), sizeof(buffer));
+
+            std::cout << buffer << std::endl;
+
+            for (std::map<SOCKET, Connection>::iterator it = connections.begin(); it != connections.end(); it++)
+            {
+                if (it->first != client.ClientSocket)
+                {
+
+                    send(it->first, buffer, sizeof(buffer), 0); // Send what other people have been saying.
+                }
+            }
         }
 
+        std::unique_lock<std::mutex> removeConnection(connections_mutex);
+
         closesocket(client.ClientSocket);
+
+        std::string disconnectMessage = client.client_name + " disconnected.";
+
+        std::cout << disconnectMessage << std::endl;
+
+        for (std::map<SOCKET, Connection>::iterator it = connections.begin(); it != connections.end(); it++)
+        {
+            if (it->first != client.ClientSocket)
+            {
+                send(it->first, disconnectMessage.c_str(), sizeof(disconnectMessage), 0); // Send what other people have been saying.
+            }
+        }
+        connections.erase(client.ClientSocket);
     }
 
-    void add_client_to_room(Connection& c)
+    void add_client_to_room(Connection c)
     {
-        connections.insert({c.ClientSocket, c });
+        std::unique_lock<std::mutex> removeConnection(connections_mutex);
+        connections.insert({ c.ClientSocket, c });
 
-        std::thread clientReceiveThread(&ChatServer::handleClient, c);
+        clientReceiveThread = std::thread([this, c] {this->clientReceive(c); });
         clientReceiveThread.detach();
     }
 
